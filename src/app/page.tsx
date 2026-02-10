@@ -58,8 +58,11 @@ const works = [
 
 const copy = {
   hero: {
-    brand: "胸が鳴る。だから、動いてしまう。",
-    subhead: "共感で終わらせない。行動が生まれる発信へ。",
+    lines: [
+      "胸が鳴る。だから、動いてしまう。",
+      "共感で終わらせない。",
+      "行動が生まれる発信へ。",
+    ],
     tagline: "縦型SNSドキュメンタリー",
     headline: "Vertical Ambient Documentary",
   },
@@ -586,24 +589,27 @@ export default function Home() {
                       aria-hidden="true"
                       className="absolute left-0 top-1 bottom-1 w-[2px] rounded-full bg-gradient-to-b from-white/35 via-white/15 to-transparent"
                     />
-                    <p
-                      className="fade-up text-base sm:text-lg font-semibold tracking-tight text-neutral-100/90 [text-wrap:balance]"
-                      style={{ animationDelay: "40ms" }}
-                    >
-                      {copy.hero.brand}
-                    </p>
-                    <p
-                      className="fade-up mt-2 text-base sm:text-lg font-semibold tracking-tight text-neutral-100/85 [text-wrap:balance]"
-                      style={{ animationDelay: "140ms" }}
-                    >
-                      {copy.hero.subhead}
-                    </p>
-                    <p
-                      className="fade-up mt-3 text-sm sm:text-base font-medium tracking-tight text-neutral-200/85"
-                      style={{ animationDelay: "240ms" }}
-                    >
-                      {copy.hero.tagline}
-                    </p>
+                    <div className="space-y-1 sm:space-y-2">
+                      {copy.hero.lines.map((line, i) => (
+                        <p
+                          key={i}
+                          className={
+                            "fade-up whitespace-normal text-lg sm:text-lg tracking-tight text-neutral-100/90 leading-snug " +
+                            (i === 0 ? "font-semibold" : "font-medium")
+                          }
+                          style={{ animationDelay: `${40 + i * 100}ms` }}
+                        >
+                          {line}
+                        </p>
+                      ))}
+
+                      <p
+                        className="fade-up mt-3 text-sm sm:text-base font-medium tracking-tight text-neutral-200/85"
+                        style={{ animationDelay: "340ms" }}
+                      >
+                        {copy.hero.tagline}
+                      </p>
+                    </div>
                   </div>
 
                   <h1 className="fade-up text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.04]" style={{ animationDelay: "320ms" }}>
