@@ -58,18 +58,16 @@ const works = [
 
 const copy = {
   hero: {
-    brand: "あなたの想い種を、共感の木に変える｜縦型SNSドキュメンタリー制作",
+    brand: "あなたの想い種を、共感の木に変える",
+    subhead: "縦型SNSドキュメンタリー制作",
     headline: "Vertical Ambient Documentary",
-    subhead: "あなたの想い種を、共感の木に変える｜縦型SNSドキュメンタリー制作",
     note:
       "想いはある。\n" +
       "でも、言葉にしきれていない。\n\n" +
       "対話と映像で、\n" +
-      "言葉になる前の想いを、外に出していく。\n\n" +
-      "発信を重ねるほど、\n" +
-      "共鳴する人が集まり、味方が増えていく。\n\n" +
-      "バズのためではなく、\n" +
-      "共感で選ばれるための縦型ドキュメンタリー。",
+      "言葉になる前の想いを外に出す。\n\n" +
+      "多くに届けるんじゃない、\n" +
+      "深く届く人との関係が育つ、縦型ドキュメンタリー。",
   },
   proof: {
     items: [
@@ -519,10 +517,10 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center">
             <div className="leading-tight">
-              <p className="text-[11px] tracking-[0.24em] text-neutral-400">
-                {copy.hero.brand}
+              <p className="text-sm sm:text-base font-medium tracking-tight text-neutral-200">
+                {copy.hero.subhead}
               </p>
-              <p className="text-sm font-medium">{copy.hero.headline}</p>
+              <p className="text-sm font-medium text-neutral-300/90">{copy.hero.headline}</p>
             </div>
           </div>
 
@@ -555,15 +553,17 @@ export default function Home() {
 
             <div className="relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div className="space-y-6">
-                <p className="text-xs tracking-[0.28em] text-neutral-300/80 uppercase">
-                  {copy.hero.subhead}
-                </p>
-
-                <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.02]">
+                <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.08]">
                   <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
-                    {copy.hero.headline}
+                    {copy.hero.brand}
+                    <br />
+                    {copy.hero.subhead}
                   </span>
                 </h1>
+
+                <p className="text-sm sm:text-base font-medium tracking-[0.12em] text-neutral-300/90">
+                  {copy.hero.headline}
+                </p>
 
                 <ProseCard tone="ink">
                   <p className="quote-bar pl-2 text-sm sm:text-base text-neutral-200/90 whitespace-pre-line">
