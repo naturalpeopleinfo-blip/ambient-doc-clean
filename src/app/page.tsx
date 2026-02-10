@@ -487,8 +487,12 @@ export default function Home() {
   );
 
   return (
-    <div className="relative min-h-screen bg-neutral-950 text-white">
+    <div className="relative min-h-screen bg-neutral-950 text-white overflow-x-hidden">
       <style jsx global>{`
+        html,
+        body {
+          overflow-x: hidden;
+        }
         .quote-bar {
           position: relative;
         }
@@ -553,25 +557,27 @@ export default function Home() {
 
             <div className="relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div className="space-y-6">
-                <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.08]">
-                  <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
+                <div className="space-y-3">
+                  <p className="text-base sm:text-lg font-medium tracking-tight text-neutral-200/95">
                     {copy.hero.brand}
                     <br />
-                    {copy.hero.subhead}
-                  </span>
-                </h1>
+                    <span className="text-sm sm:text-base text-neutral-300/90">
+                      {copy.hero.subhead}
+                    </span>
+                  </p>
 
-                <p className="text-sm sm:text-base font-medium tracking-[0.12em] text-neutral-300/90">
-                  {copy.hero.headline}
-                </p>
+                  <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.04]">
+                    <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
+                      {copy.hero.headline}
+                    </span>
+                  </h1>
+                </div>
 
                 <ProseCard tone="ink">
                   <p className="quote-bar pl-2 text-sm sm:text-base text-neutral-200/90 whitespace-pre-line">
                     {copy.hero.note}
                   </p>
                 </ProseCard>
-
-
               </div>
 
               <div className="lg:justify-self-end">
