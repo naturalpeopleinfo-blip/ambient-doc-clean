@@ -58,16 +58,10 @@ const works = [
 
 const copy = {
   hero: {
-    brand: "あなたの想い種を、共感の木に変える",
-    subhead: "縦型SNSドキュメンタリー制作",
+    brand: "胸が鳴る。だから、動いてしまう。",
+    subhead: "共感で終わらせない。行動が生まれる発信へ。",
+    tagline: "縦型SNSドキュメンタリー",
     headline: "Vertical Ambient Documentary",
-    note:
-      "想いはある。\n" +
-      "でも、言葉にしきれていない。\n\n" +
-      "対話と映像で、\n" +
-      "言葉になる前の想いを外に出す。\n\n" +
-      "多くに届けるんじゃない、\n" +
-      "深く届く人との関係が育つ、縦型ドキュメンタリー。",
   },
   proof: {
     items: [
@@ -529,7 +523,7 @@ export default function Home() {
           <div className="flex items-center">
             <div className="leading-tight">
               <p className="text-sm sm:text-base font-medium tracking-tight text-neutral-200">
-                {copy.hero.subhead}
+                {copy.hero.tagline}
               </p>
               <p className="text-sm font-medium text-neutral-300/90">{copy.hero.headline}</p>
             </div>
@@ -567,10 +561,12 @@ export default function Home() {
                 <div className="space-y-3">
                   <p className="text-sm sm:text-base font-medium tracking-tight text-neutral-200/90 [text-wrap:balance]">
                     {copy.hero.brand}
-                    <br />
-                    <span className="text-xs sm:text-sm text-neutral-300/90">
-                      {copy.hero.subhead}
-                    </span>
+                  </p>
+                  <p className="text-sm sm:text-base font-medium tracking-tight text-neutral-200/90 [text-wrap:balance]">
+                    {copy.hero.subhead}
+                  </p>
+                  <p className="text-sm sm:text-base font-medium tracking-tight text-neutral-200/90">
+                    {copy.hero.tagline}
                   </p>
 
                   <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.04]">
@@ -579,12 +575,6 @@ export default function Home() {
                     </span>
                   </h1>
                 </div>
-
-                <ProseCard tone="ink">
-                  <p className="quote-bar pl-2 text-sm sm:text-base text-neutral-200/90 whitespace-pre-line">
-                    {copy.hero.note}
-                  </p>
-                </ProseCard>
               </div>
 
               <div className="lg:justify-self-end">
@@ -625,11 +615,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
-                  ※ 自動再生は <span className="text-neutral-300">muted</span> +
-                  <span className="text-neutral-300"> playsInline</span> が必須。
-                  iOS/一部ブラウザでは条件により停止することがあります。
-                </p>
               </div>
             </div>
           </div>
