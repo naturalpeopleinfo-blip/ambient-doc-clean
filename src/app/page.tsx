@@ -277,7 +277,7 @@ const btnGhost =
 
 const btnPrimary =
   btnBase +
-  " relative overflow-hidden border-white/15 bg-white/10 text-white hover:border-white/20";
+  " relative overflow-hidden border-[#FCD200] bg-[#FFD814] text-neutral-900 hover:bg-[#F7CA00] hover:border-[#F2C200] shadow-[0_12px_36px_rgba(0,0,0,0.35)]";
 
 function PrimaryButton({
   href,
@@ -294,8 +294,8 @@ function PrimaryButton({
 }) {
   return (
     <a href={href} target={target} rel={rel} className={`${btnPrimary} ambient-glow ${className}`}>
-      <span className="absolute inset-0 opacity-0 transition-opacity duration-300 hover:opacity-100 bg-gradient-to-r from-amber-200/30 via-amber-100/10 to-amber-300/25" />
-      <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
+      <span className="pointer-events-none absolute inset-0 opacity-60 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.35),rgba(255,255,255,0)_55%)]" />
+      <span className="relative z-10 inline-flex items-center gap-2 font-medium">{children}</span>
     </a>
   );
 }
@@ -493,6 +493,13 @@ export default function Home() {
         body {
           overflow-x: hidden;
         }
+        body {
+          touch-action: pan-y;
+        }
+        html,
+        body {
+          overscroll-behavior-x: none;
+        }
         .quote-bar {
           position: relative;
         }
@@ -517,7 +524,7 @@ export default function Home() {
       {/* Top glow */}
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[720px] -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
 
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-neutral-950/70 backdrop-blur">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/70 backdrop-blur">
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center">
             <div className="leading-tight">
@@ -548,7 +555,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-6 pb-28 space-y-20">
+      <main className="mx-auto max-w-6xl px-6 pt-24 sm:pt-28 pb-28 space-y-20">
         {/* HERO */}
         <section className="pt-10">
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/12 to-white/6 p-6 sm:p-10">
@@ -558,10 +565,10 @@ export default function Home() {
             <div className="relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <p className="text-base sm:text-lg font-medium tracking-tight text-neutral-200/95">
+                  <p className="text-sm sm:text-base font-medium tracking-tight text-neutral-200/90 [text-wrap:balance]">
                     {copy.hero.brand}
                     <br />
-                    <span className="text-sm sm:text-base text-neutral-300/90">
+                    <span className="text-xs sm:text-sm text-neutral-300/90">
                       {copy.hero.subhead}
                     </span>
                   </p>
