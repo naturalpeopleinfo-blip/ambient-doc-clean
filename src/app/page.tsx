@@ -58,9 +58,9 @@ const works = [
 
 const copy = {
   hero: {
-    brand: "AMBIENT DOC",
+    brand: "あなたの想い種を、共感の木に変える｜縦型SNSドキュメンタリー制作",
     headline: "Vertical Ambient Documentary",
-    subhead: "AMBIENT DOC",
+    subhead: "あなたの想い種を、共感の木に変える｜縦型SNSドキュメンタリー制作",
     note:
       "想いはある。\n" +
       "でも、言葉にしきれていない。\n\n" +
@@ -517,10 +517,7 @@ export default function Home() {
 
       <header className="sticky top-0 z-40 border-b border-white/10 bg-neutral-950/70 backdrop-blur">
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-xs tracking-widest">
-              AD
-            </span>
+          <div className="flex items-center">
             <div className="leading-tight">
               <p className="text-[11px] tracking-[0.24em] text-neutral-400">
                 {copy.hero.brand}
@@ -613,10 +610,6 @@ export default function Home() {
                     </noscript>
                     <div className="pointer-events-none absolute inset-0 ring-1 ring-white/10" />
                   </div>
-                  <div className="flex items-center justify-between px-4 py-3 text-xs text-neutral-300/80">
-                    <span>Ambient cut</span>
-                    <span className="text-neutral-500">9:16</span>
-                  </div>
                 </div>
 
                 <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
@@ -665,20 +658,39 @@ export default function Home() {
               言葉になる前の温度を拾い、来店・問い合わせ・採用DMにつながる導線へ落とし込みます。
             </p>
 
+            <ProseCard>
+              <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed whitespace-pre-line">
+                この発信は、数字を集めるためのものではありません。
+
+                誰が共感し、
+                誰が足を運び、
+                誰が仲間になってくれるか。
+
+                その結果として、以下の動きが生まれました。
+              </p>
+            </ProseCard>
             <div className="mt-8 rounded-2xl border border-white/15 bg-white/5 p-5">
               <p className="mb-4 text-sm tracking-widest text-neutral-400">
-                RESULTS（抜粋）
+                RESULTS｜共感の先に起きたこと
               </p>
               <ul className="space-y-2 text-sm text-neutral-100/90">
                 <li>・初月 来店数：326名</li>
-                <li>・平均客単価：5,500円</li>
                 <li>・売上の約75%がInstagram導線</li>
                 <li>・3ヶ月間でInstagram経由売上 240万円以上</li>
+                <li>・ディーラー（アルバイト）応募：Instagram DMに30件以上</li>
               </ul>
-              <p className="mt-4 text-xs text-neutral-400">
-                ※ オープン初期〜3ヶ月の範囲での記録です
-              </p>
+              <div className="mt-4 space-y-1 text-xs text-neutral-400">
+                <p>※ 応募メッセージの多くに「発信に共感した」という言葉が添えられていました</p>
+                <p>※ オープン初期〜3ヶ月の範囲での記録です</p>
+              </div>
             </div>
+            <ProseCard>
+              <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed">
+                数字として見える結果だけでなく、
+                <br />
+                「どんな人が集まるか」まで設計した発信でした。
+              </p>
+            </ProseCard>
             <ProseCard>
               <p className="text-sm sm:text-base text-neutral-200/90">
                 6本は「テンプレ」ではなく、一本ごとに役割が違う“設計ログ”。
