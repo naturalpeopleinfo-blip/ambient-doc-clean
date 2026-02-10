@@ -19,37 +19,37 @@ const PROFILE_IMAGE = "/profile.jpg";
 // public/works/alberto-01.png ... alberto-06.png
 const works = [
   {
-    title: "ALBERTO｜Why We Opened (Owner Interview)",
+    title: "制作事例｜Why We Opened (Owner Interview)",
     caption: "開く理由を、飾らず縦で残す。",
     src: "/works/alberto-01.mp4",
     poster: "/works/alberto-01.png",
   },
   {
-    title: "ALBERTO｜Staff Talk #01",
+    title: "制作事例｜Staff Talk #01",
     caption: "会話の温度で、人柄が立ち上がる。",
     src: "/works/alberto-02.mp4",
     poster: "/works/alberto-02.png",
   },
   {
-    title: "ALBERTO｜Staff Talk #02",
+    title: "制作事例｜Staff Talk #02",
     caption: "関係性の声が、信頼を見える形にする。",
     src: "/works/alberto-03.mp4",
     poster: "/works/alberto-03.png",
   },
   {
-    title: "ALBERTO｜Favorite Hand (Mini Concept)",
+    title: "制作事例｜Favorite Hand (Mini Concept)",
     caption: "遊びの一手で、場の空気が伝わる。",
     src: "/works/alberto-04.mp4",
     poster: "/works/alberto-04.png",
   },
   {
-    title: "ALBERTO｜Build Process (DIY & Interior)",
+    title: "制作事例｜Build Process (DIY & Interior)",
     caption: "手を動かす時間が、想いを現実にする。",
     src: "/works/alberto-05.mp4",
     poster: "/works/alberto-05.png",
   },
   {
-    title: "ALBERTO｜Ambient Cut / Opening Teaser",
+    title: "制作事例｜Ambient Cut / Opening Teaser",
     caption: "言葉より先に、空気で惹きつける。",
     src: "/works/alberto-06.mp4",
     poster: "/works/alberto-06.png",
@@ -510,6 +510,28 @@ export default function Home() {
             rgba(255, 255, 255, 0.08)
           );
         }
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .fade-up {
+          opacity: 0;
+          transform: translateY(10px);
+          animation: fadeUp 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .fade-up {
+            opacity: 1;
+            transform: none;
+            animation: none;
+          }
+        }
       `}</style>
       {/* Subtle noise grid */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.05] [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:26px_26px]" />
@@ -558,18 +580,33 @@ export default function Home() {
 
             <div className="relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div className="space-y-6">
-                <div className="space-y-3">
-                  <p className="text-sm sm:text-base font-medium tracking-tight text-neutral-200/90 [text-wrap:balance]">
-                    {copy.hero.brand}
-                  </p>
-                  <p className="text-sm sm:text-base font-medium tracking-tight text-neutral-200/90 [text-wrap:balance]">
-                    {copy.hero.subhead}
-                  </p>
-                  <p className="text-sm sm:text-base font-medium tracking-tight text-neutral-200/90">
-                    {copy.hero.tagline}
-                  </p>
+                <div className="space-y-4">
+                  <div className="relative pl-4">
+                    <span
+                      aria-hidden="true"
+                      className="absolute left-0 top-1 bottom-1 w-[2px] rounded-full bg-gradient-to-b from-white/35 via-white/15 to-transparent"
+                    />
+                    <p
+                      className="fade-up text-base sm:text-lg font-semibold tracking-tight text-neutral-100/90 [text-wrap:balance]"
+                      style={{ animationDelay: "40ms" }}
+                    >
+                      {copy.hero.brand}
+                    </p>
+                    <p
+                      className="fade-up mt-2 text-base sm:text-lg font-semibold tracking-tight text-neutral-100/85 [text-wrap:balance]"
+                      style={{ animationDelay: "140ms" }}
+                    >
+                      {copy.hero.subhead}
+                    </p>
+                    <p
+                      className="fade-up mt-3 text-sm sm:text-base font-medium tracking-tight text-neutral-200/85"
+                      style={{ animationDelay: "240ms" }}
+                    >
+                      {copy.hero.tagline}
+                    </p>
+                  </div>
 
-                  <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.04]">
+                  <h1 className="fade-up text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.04]" style={{ animationDelay: "320ms" }}>
                     <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
                       {copy.hero.headline}
                     </span>
@@ -671,7 +708,7 @@ export default function Home() {
               <p className="mb-4 text-sm tracking-widest text-neutral-400">
                 RESULTS｜共感の先に起きたこと
               </p>
-              <ul className="space-y-2 text-sm text-neutral-100/90">
+              <ul className="space-y-2 text-sm font-medium text-[#FFD814]">
                 <li>・初月 来店数：326名</li>
                 <li>・売上の約75%がInstagram導線</li>
                 <li>・3ヶ月間でInstagram経由売上 240万円以上</li>
