@@ -19,7 +19,7 @@ const PROFILE_IMAGE = "/profile.jpg";
 // public/works/alberto-01.png ... alberto-06.png
 const works = [
   {
-    title: "制作事例｜Why We Opened (Owner Interview)",
+    title: "制作事例｜Why We Opened",
     caption: "開く理由を、飾らず縦で残す。",
     src: "/works/alberto-01.mp4",
     poster: "/works/alberto-01.png",
@@ -63,7 +63,7 @@ const copy = {
       "共感で終わらせない。",
       "行動が生まれる発信へ。",
     ],
-    tagline: "縦型SNSドキュメンタリー",
+    tagline: "縦型SNSドキュメンタリー映像制作",
     headline: "Vertical Ambient Documentary",
   },
   proof: {
@@ -74,7 +74,7 @@ const copy = {
     ],
   },
 concept: {
-  title: "想いは、伝え方で届き方が変わる。",
+  title: "胸が高鳴る瞬間は、つくれる。",
   body:
     "私たちが向き合っているのは、再生数や一時的な話題ではありません。\n\n" +
     "どんな想いで、場をつくっているのか。\n" +
@@ -82,7 +82,9 @@ concept: {
     "そして、なぜ今、それを伝えるのか。\n\n" +
     "立ち上げ前という、最も正直で、まだ整いきっていない時間。\n\n" +
     "その瞬間を、過剰に飾ることなく、ありのままに残すことで、\n" +
-    "共感は静かに広がっていきます。",
+    "共感は静かに広がっていきます。\n\n" +
+    "そして、短い縦型SNS動画だからこそ、\n" +
+    "日常の中で何度も触れられ、反応が積み上がっていく設計が可能になります。",
   points: [
     { icon: "sig", text: "サービスや商品ではなく、想いと人柄を伝える設計" },
     { icon: "hourglass", text: "完璧ではない時間を、そのまま価値として残す" },
@@ -107,7 +109,7 @@ concept: {
       {
         k: "STEP 2",
         t: "撮影（1回 or 分割）",
-        d: "インタビュー＋場の温度（B-roll）をセットで収録。‘盛らない’前提で画を揃える。",
+        d: "インタビュー＋場の温度（インサート）をセットで収録。‘盛らない’前提で画を揃える。",
       },
       {
         k: "STEP 3",
@@ -447,8 +449,13 @@ function WorkCard({ w }: { w: (typeof works)[number] }) {
               className="h-full w-full object-cover brightness-110 contrast-105"
             />
             <span className="absolute inset-0 bg-black/20" />
-            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 inline-flex items-center justify-center rounded-full border border-white/25 bg-black/40 px-4 py-2 text-xs text-white backdrop-blur transition-transform duration-300 hover:scale-[1.04]">
-              ▶ Play
+
+            {/* Bigger, clearer Play button (avoid overlapping thumbnail text) */}
+            <span className="absolute left-1/2 bottom-5 -translate-x-1/2 inline-flex items-center justify-center rounded-full border border-white/30 bg-black/55 px-6 py-3 text-sm text-white backdrop-blur-md shadow-[0_18px_50px_rgba(0,0,0,0.55)] transition-transform duration-300 hover:scale-[1.04]">
+              <span className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 h-7 w-7 mr-3">
+                ▶
+              </span>
+              Play
             </span>
           </button>
         ) : (
@@ -473,12 +480,10 @@ export default function Home() {
 
   const nav = useMemo(
     () => [
-      { id: "profile", label: "Profile" },
       { id: "concept", label: "Concept" },
       { id: "works", label: "Works" },
       { id: "flow", label: "Flow" },
-      { id: "fit", label: "Fit" },
-      { id: "contact", label: "Contact" },
+      { id: "profile", label: "Profile" },
     ],
     []
   );
@@ -594,12 +599,18 @@ export default function Home() {
                         <p
                           key={i}
                           className={
-                            "fade-up whitespace-normal text-lg sm:text-lg tracking-tight text-neutral-100/90 leading-snug " +
-                            (i === 0 ? "font-semibold" : "font-medium")
+                            "fade-up whitespace-normal tracking-tight leading-snug " +
+                            (i === 0
+                              ? "text-2xl sm:text-3xl font-semibold text-white relative"
+                              : "text-lg sm:text-lg font-medium text-neutral-300/90")
                           }
                           style={{ animationDelay: `${40 + i * 100}ms` }}
                         >
-                          {line}
+                          {i === 0 ? (
+                            <span className="relative inline-block">{line}</span>
+                          ) : (
+                            line
+                          )}
                         </p>
                       ))}
 
@@ -663,7 +674,7 @@ export default function Home() {
           </div>
         </section>
 
-        
+        {/* CONCEPT */}
 
         {/* CONCEPT */}
         <section id="concept" className="space-y-5 scroll-mt-28">
@@ -687,71 +698,62 @@ export default function Home() {
               <Divider />
             </div>
             <h2 className="text-xl sm:text-2xl font-semibold tracking-tight">
-              WORKS｜事例：ALBERTO（湘南のポーカースペース）
+              事例：湘南のポーカースペース
             </h2>
             <p className="mt-2 text-sm sm:text-base text-neutral-200/90 leading-relaxed">
-              湘南にあるポーカースペース「ALBERTO」の立ち上げを、
-              “ギャンブル”ではなく「コミュニケーションの場」として伝えるために、
-              縦型ミニドキュメンタリーを設計しました。
-            </p>
-            <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed">
-              オーナーの想い、スタッフとの関係性、地域スポンサーとのつながり。
-              言葉になる前の温度を拾い、来店・問い合わせ・採用DMにつながる導線へ落とし込みます。
+              湘南のポーカースペース「ALBERTO」の立ち上げを、“ギャンブル”ではなく「コミュニケーションの場」として再定義。
+              オーナーの想いとスタッフの関係性、場の温度を縦型ミニドキュメンタリーで可視化し、来店・問い合わせ・採用DMへつながる導線を設計しました。
             </p>
 
-            <ProseCard>
-              <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed whitespace-pre-line">
-                この発信は、数字を集めるためのものではありません。
-
-                誰が共感し、
-                誰が足を運び、
-                誰が仲間になってくれるか。
-
-                その結果として、以下の動きが生まれました。
-              </p>
-            </ProseCard>
-            <div className="mt-8 rounded-2xl border border-white/15 bg-white/5 p-5">
-              <p className="mb-4 text-sm tracking-widest text-neutral-400">
+            <div className="mt-8 rounded-2xl border border-white/15 bg-white/5 p-5 sm:p-6">
+              <p className="mb-5 text-sm tracking-widest text-neutral-400">
                 RESULTS｜共感の先に起きたこと
               </p>
-              <ul className="space-y-2 text-sm font-medium text-[#FFD814]">
-                <li>・初月 来店数：326名</li>
-                <li>・売上の約75%がInstagram導線</li>
-                <li>・3ヶ月間でInstagram経由売上 240万円以上</li>
-                <li>・ディーラー（アルバイト）応募：Instagram DMに30件以上</li>
-              </ul>
-              <div className="mt-4 space-y-1 text-xs text-neutral-400">
-                <p>※ 応募メッセージの多くに「発信に共感した」という言葉が添えられていました</p>
-                <p>※ オープン初期〜3ヶ月の範囲での記録です</p>
+              <p className="mb-5 text-sm sm:text-base text-neutral-200/90 leading-relaxed whitespace-pre-line">
+                この発信の狙いは、数字そのものではありません。
+                誰が共感し、
+                誰が足を運び、
+                誰が仲間になってくれるのか。
+                その“人の動き”まで含めて設計した結果、下記の動きが生まれました。
+              </p>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {/* 1st card */}
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-5 transition hover:bg-white/[0.06]">
+                  <p className="text-sm sm:text-base font-medium tracking-tight text-white/85">初月の来店数</p>
+                  <div className="mt-2 flex items-baseline gap-2">
+                    <p className="text-4xl sm:text-5xl font-semibold text-[#FFD814]">326</p>
+                    <p className="text-sm sm:text-base text-neutral-100/85">名</p>
+                  </div>
+                  <p className="mt-2 text-xs sm:text-sm text-neutral-300/80">まず“足を運ぶ”動きが生まれた</p>
+                </div>
+                {/* 2nd card */}
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-5 transition hover:bg-white/[0.06]">
+                  <p className="text-sm sm:text-base font-medium tracking-tight text-white/85">Instagramが占めた売上比率</p>
+                  <p className="mt-2 text-4xl sm:text-5xl font-semibold text-[#FFD814]">75%</p>
+                  <p className="mt-2 text-xs sm:text-sm text-neutral-300/80">発信から来店までの導線が機能</p>
+                </div>
+                {/* 3rd card */}
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-5 transition hover:bg-white/[0.06]">
+                  <p className="text-sm sm:text-base font-medium tracking-tight text-white/85">3ヶ月間のInstagram経由売上</p>
+                  <p className="mt-2 text-4xl sm:text-5xl font-semibold text-[#FFD814]">240</p>
+                  <p className="mt-2 text-sm sm:text-base text-neutral-100/85">万円以上</p>
+                  <p className="mt-2 text-xs sm:text-sm text-neutral-300/80">“共感”が実益に接続した</p>
+                </div>
+                {/* 4th card */}
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-5 transition hover:bg-white/[0.06]">
+                  <p className="text-sm sm:text-base font-medium tracking-tight text-white/85">採用応募（ディーラーアルバイト）</p>
+                  <p className="mt-2 text-4xl sm:text-5xl font-semibold text-[#FFD814]">30+</p>
+                  <p className="mt-2 text-sm sm:text-base text-neutral-100/85">Instagram DM経由</p>
+                  <p className="mt-2 text-xs sm:text-sm text-neutral-300/80">DMの多くに「共感した」の一言</p>
+                </div>
+              </div>
+
+              <div className="mt-5 space-y-1 text-xs text-neutral-400">
+                <p>※ オープン初期〜3ヶ月の記録（店舗側計測）</p>
+                <p>※ 応募DMの多くに「発信に共感した」の一言が添えられていました</p>
               </div>
             </div>
-            <ProseCard>
-              <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed">
-                数字として見える結果だけでなく、
-                <br />
-                「どんな人が集まるか」まで設計した発信でした。
-              </p>
-            </ProseCard>
-            <ProseCard>
-              <p className="text-sm sm:text-base text-neutral-200/90">
-                6本は「テンプレ」ではなく、一本ごとに役割が違う“設計ログ”。
-                人柄→関係性→空気→行動 の順で、共感を行動につなげていきます。
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-neutral-200/90">
-                  人柄
-                </span>
-                <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-neutral-200/90">
-                  関係性
-                </span>
-                <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-neutral-200/90">
-                  空気
-                </span>
-                <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-neutral-200/90">
-                  行動
-                </span>
-              </div>
-            </ProseCard>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -785,7 +787,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="px-5"
               >
-                制作したポーカバーのアカウントを見る（Instagram） <span className="text-neutral-500">↗</span>
+                制作したポーカースペースのアカウントを見る（Instagram） <span className="text-neutral-500">↗</span>
               </GhostButton>
               <PrimaryButton href="#contact" className="px-7">
                 相談へ進む
@@ -860,7 +862,7 @@ export default function Home() {
                   <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed">
                     想いを整理し、伝わる形に整えるところから伴走します。
                     <br />
-                    反応が“静かに強く”積み上がる発信を、一緒に設計します。
+                    反応が積み上がる形に仕立てます。
                   </p>
                 </div>
 
@@ -877,7 +879,7 @@ export default function Home() {
                     <p className="text-[11px] tracking-[0.24em] text-neutral-400">スタンス</p>
                     <ul className="mt-3 space-y-2 text-sm text-neutral-200/85 leading-relaxed">
                       <li>・盛らない、でも退屈にしない</li>
-                      <li>・続けられる形に落とし込む</li>
+                      <li>・反応が積み上がる“型”に整える</li>
                       <li>・人柄と関係性を、信頼に変える</li>
                     </ul>
                   </div>
@@ -915,14 +917,14 @@ export default function Home() {
           </div>
 
           <div className="grid gap-4 sm:[grid-template-columns:1.15fr_0.85fr]">
-            <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-b from-white/10 to-white/5 p-5 sm:p-6 shadow-[0_24px_80px_rgba(0,0,0,0.55)]">
-              <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-white/12 blur-3xl" />
-              <div className="pointer-events-none absolute -bottom-28 -right-24 h-80 w-80 rounded-full bg-white/8 blur-3xl" />
+            <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-[#FFD814]/[0.14] via-white/10 to-white/5 p-6 sm:p-7 shadow-[0_30px_100px_rgba(0,0,0,0.65)]">
+              <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#FFD814]/[0.10] blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-28 -right-24 h-80 w-80 rounded-full bg-[#FFD814]/[0.06] blur-3xl" />
 
               <div className="relative flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-[11px] tracking-[0.24em] text-neutral-400">RECOMMENDED</p>
-                  <p className="mt-1 text-sm font-medium text-neutral-100/95">合う方</p>
+                  <p className="text-[11px] tracking-[0.24em] text-neutral-300">FOR YOU</p>
+                  <p className="mt-1 text-base font-semibold text-white">きっと、しっくりくる方</p>
                 </div>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/20 px-3 py-1 text-xs text-neutral-200/90">
                   <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-white/15 bg-white/5">
@@ -934,7 +936,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <ul className="relative mt-4 grid gap-2">
+              <ul className="relative mt-5 grid gap-3">
                 {copy.fit.good.map((t, i) => (
                   <li
                     key={i}
@@ -946,7 +948,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="relative rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 opacity-80 hover:opacity-95 transition">
+            <div className="relative rounded-2xl border border-white/10 bg-white/[0.04] p-5 sm:p-6 opacity-70 hover:opacity-85 transition">
               <div className="pointer-events-none absolute inset-0 rounded-2xl border border-dashed border-white/10" />
 
               <div className="relative flex items-start justify-between gap-4">
@@ -970,6 +972,20 @@ export default function Home() {
                 ))}
               </ul>
             </div>
+          </div>
+        </section>
+
+        {/* INDUSTRY NOTE */}
+        <section className="space-y-4 pt-6">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 text-center">
+            <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed whitespace-pre-line">
+              この取り組みは、業種を問いません。
+
+              店舗でも、サービスでも、ものづくりでも。
+
+              「人が立っている事業」であれば、
+              必ず機能します。
+            </p>
           </div>
         </section>
 
