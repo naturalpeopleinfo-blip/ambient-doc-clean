@@ -1004,11 +1004,11 @@ export default function Home() {
           <div className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-7">
             <p className="text-sm tracking-widest text-neutral-400">料金目安</p>
             <p className="mt-3 text-sm sm:text-base text-neutral-200/90 leading-relaxed">
-              月額 <span className="text-white font-medium">200,000円〜（税別）</span>
-              <span className="text-neutral-400">（内容・本数・期間により調整）</span>
+              月額 <span className="text-white font-medium">150,000円〜（税別）</span>
+              <span className="text-neutral-400">（週1本程度〜／内容・本数・期間により調整）</span>
             </p>
             <p className="mt-3 text-xs sm:text-sm text-neutral-400 leading-relaxed">
-              ※ まずは目的と現状を伺い、最適な設計でご提案します。
+              ※ まずは目的と現状を伺い、最適な設計でご提案します（週2本以上・立ち上げ期の設計込み等は別途お見積り）。
             </p>
           </div>
         </section>
