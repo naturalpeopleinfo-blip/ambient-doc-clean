@@ -736,14 +736,19 @@ export default function Home() {
                 {/* 3rd card */}
                 <div className="rounded-2xl border border-white/10 bg-black/20 p-5 transition hover:bg-white/[0.06]">
                   <p className="text-sm sm:text-base font-medium tracking-tight text-white/85">3ヶ月間のInstagram経由売上</p>
-                  <p className="mt-2 text-4xl sm:text-5xl font-semibold text-[#FFD814]">240</p>
-                  <p className="mt-2 text-sm sm:text-base text-neutral-100/85">万円以上</p>
+                  <div className="mt-2 flex items-baseline gap-2">
+                    <p className="text-4xl sm:text-5xl font-semibold text-[#FFD814]">240</p>
+                    <p className="text-sm sm:text-base text-neutral-100/85">万円以上</p>
+                  </div>
                   <p className="mt-2 text-xs sm:text-sm text-neutral-300/80">“共感”が実益に接続した</p>
                 </div>
                 {/* 4th card */}
                 <div className="rounded-2xl border border-white/10 bg-black/20 p-5 transition hover:bg-white/[0.06]">
                   <p className="text-sm sm:text-base font-medium tracking-tight text-white/85">採用応募（ディーラーアルバイト）</p>
-                  <p className="mt-2 text-4xl sm:text-5xl font-semibold text-[#FFD814]">30+</p>
+                  <div className="mt-2 flex items-baseline gap-2">
+                    <p className="text-4xl sm:text-5xl font-semibold text-[#FFD814]">30+</p>
+                    <p className="text-sm sm:text-base text-neutral-100/85">件</p>
+                  </div>
                   <p className="mt-2 text-sm sm:text-base text-neutral-100/85">Instagram DM経由</p>
                   <p className="mt-2 text-xs sm:text-sm text-neutral-300/80">DMの多くに「共感した」の一言</p>
                 </div>
@@ -989,6 +994,25 @@ export default function Home() {
           </div>
         </section>
 
+        {/* PRICING */}
+        <section className="space-y-5 pt-2">
+          <div className="flex items-center gap-3">
+            <Pill>Pricing</Pill>
+            <Divider />
+          </div>
+
+          <div className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-7">
+            <p className="text-sm tracking-widest text-neutral-400">料金目安</p>
+            <p className="mt-3 text-sm sm:text-base text-neutral-200/90 leading-relaxed">
+              月額 <span className="text-white font-medium">200,000円〜（税別）</span>
+              <span className="text-neutral-400">（内容・本数・期間により調整）</span>
+            </p>
+            <p className="mt-3 text-xs sm:text-sm text-neutral-400 leading-relaxed">
+              ※ まずは目的と現状を伺い、最適な設計でご提案します。
+            </p>
+          </div>
+        </section>
+
         {/* CONTACT */}
         <section id="contact" className="text-center space-y-4 pt-4">
           <div className="mx-auto flex max-w-xl items-center gap-3 justify-center">
@@ -1010,8 +1034,7 @@ export default function Home() {
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            ※ すべてのご相談をお受けするわけではありません。<br />
-            方向性が合う場合のみ、次のステップをご案内します。
+            ※ ボタンを押すと Googleフォーム（別タブ）が開きます。
           </p>
         </section>
       </main>
