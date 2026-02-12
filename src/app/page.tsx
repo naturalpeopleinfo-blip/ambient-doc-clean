@@ -328,6 +328,22 @@ function ConceptStage({
   body: string;
   points: readonly { icon: ConceptIconName; text: string }[];
 }) {
+  // Helper for highlighting multiple phrases
+  const renderHighlighted = (text: string) => {
+    const highlights = ["短い縦型SNS動画", "反応が積み上がっていく"] as const;
+    // Build a single regex that matches any highlight phrase
+    const pattern = new RegExp(`(${highlights.map((h) => h.replace(/[.*+?^${}()|[\\]\\]/g, "\\\\$&")).join("|")})`, "g");
+    const parts = text.split(pattern);
+    return parts.map((part, idx) => {
+      const isHit = highlights.includes(part as (typeof highlights)[number]);
+      if (!isHit) return <span key={idx}>{part}</span>;
+      return (
+        <span key={idx} className="text-[#FFD814] font-medium">
+          {part}
+        </span>
+      );
+    });
+  };
   return (
     <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/8 to-transparent p-6 sm:p-8 space-y-6">
       <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.10)_1px,transparent_1px)] [background-size:44px_44px]" />
@@ -340,7 +356,7 @@ function ConceptStage({
       {/* Body */}
       <div className="relative z-10 rounded-2xl border border-white/10 bg-black/25 p-5">
         <p className="whitespace-pre-line text-sm sm:text-base text-neutral-200/90 leading-relaxed">
-          {body}
+          {renderHighlighted(body)}
         </p>
       </div>
 
