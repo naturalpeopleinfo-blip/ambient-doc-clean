@@ -6,6 +6,8 @@ const FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSe-bXgw0aTVcKIU14mwXXHmODpq41mku97wso5mgpD4pt7MNQ/viewform?usp=header";
 const ALBERTO_IG_URL = "https://www.instagram.com/alberto_shonan/";
 const GORIKI_IG_URL = "https://www.instagram.com/goriki.daisuke";
+// TODO: 小濱さんのInstagram URLを入れてください
+const KOHAMA_IG_URL = "https://www.instagram.com/takuya.kohama";
 
 // HERO assets (place under /public/hero/)
 // public/hero/hero.mp4
@@ -499,7 +501,7 @@ export default function Home() {
       { id: "concept", label: "Concept" },
       { id: "works", label: "Works" },
       { id: "flow", label: "Flow" },
-      { id: "profile", label: "Profile" },
+      { id: "profile", label: "Team" },
     ],
     []
   );
@@ -854,70 +856,133 @@ export default function Home() {
         {/* PROFILE */}
         <section id="profile" className="space-y-6 scroll-mt-28">
           <div className="flex items-center gap-3">
-            <Pill>Profile</Pill>
+            <Pill>Team</Pill>
             <Divider />
           </div>
 
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-transparent p-6 sm:p-8">
             <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.10)_1px,transparent_1px)] [background-size:48px_48px]" />
+            <p className="relative mb-6 text-sm sm:text-base text-neutral-200/85 leading-relaxed">
+              想いを設計する人と、画で実装する人。
+            </p>
+            <div className="space-y-10">
+              {/* Member 01 */}
+              <div className="relative grid gap-8 lg:grid-cols-[0.55fr_1fr] lg:items-center">
+                <div className="mx-auto w-full max-w-[320px]">
+                  <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-black/25 shadow-[0_30px_90px_rgba(0,0,0,0.55)] group">
+                    <div className="relative w-full" style={{ aspectRatio: "1 / 1" }}>
+                      <img
+                        src={PROFILE_IMAGE}
+                        alt="剛力大介のプロフィール写真"
+                        className="h-full w-full object-cover grayscale contrast-110 brightness-95 transition duration-500 group-hover:grayscale-0"
+                        loading="lazy"
+                      />
+                      <div className="pointer-events-none absolute inset-0 ring-1 ring-white/10" />
+                    </div>
+                  </div>
+                </div>
 
-            <div className="relative grid gap-8 lg:grid-cols-[0.55fr_1fr] lg:items-center">
-              <div className="mx-auto w-full max-w-[320px]">
-                <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-black/25 shadow-[0_30px_90px_rgba(0,0,0,0.55)] group">
-                  <div className="relative w-full" style={{ aspectRatio: "1 / 1" }}>
-                    <img
-                      src={PROFILE_IMAGE}
-                      alt="剛力大介のプロフィール写真"
-                      className="h-full w-full object-cover grayscale contrast-110 brightness-95 transition duration-500 group-hover:grayscale-0"
-                      loading="lazy"
-                    />
-                    <div className="pointer-events-none absolute inset-0 ring-1 ring-white/10" />
+                <div className="space-y-5">
+                  <div className="space-y-2">
+                    <p className="text-[11px] tracking-[0.24em] text-neutral-400">ストーリーディレクター</p>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">剛力 大介</h2>
+                    <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed">
+                      想いを整理し、伝わる形に整えるところから伴走します。
+                      <br />
+                      反応が積み上がる形に仕立てます。
+                    </p>
+                  </div>
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                      <p className="text-[11px] tracking-[0.24em] text-neutral-400">強み</p>
+                      <ul className="mt-3 space-y-2 text-sm text-neutral-200/85 leading-relaxed">
+                        <li>・ヒアリングで“言葉になる前”を拾う</li>
+                        <li>・縦動画の構成とテンポ設計</li>
+                        <li>・導線（来店/問合せ/採用）まで一体で設計</li>
+                      </ul>
+                    </div>
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                      <p className="text-[11px] tracking-[0.24em] text-neutral-400">スタンス</p>
+                      <ul className="mt-3 space-y-2 text-sm text-neutral-200/85 leading-relaxed">
+                        <li>・盛らない、でも退屈にしない</li>
+                        <li>・反応が積み上がる“型”に整える</li>
+                        <li>・人柄と関係性を、信頼に変える</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <GhostButton
+                      href={GORIKI_IG_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-7"
+                    >
+                      制作・日々の記録を見る（Instagram） <span className="text-neutral-500">↗</span>
+                    </GhostButton>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-5">
-                <div className="space-y-2">
-                  <p className="text-[11px] tracking-[0.24em] text-neutral-400">縦型ドキュメンタリー制作者</p>
-                  <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">剛力大介</h2>
-                  <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed">
-                    想いを整理し、伝わる形に整えるところから伴走します。
-                    <br />
-                    反応が積み上がる形に仕立てます。
-                  </p>
-                </div>
+              <div className="h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
 
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <p className="text-[11px] tracking-[0.24em] text-neutral-400">強み</p>
-                    <ul className="mt-3 space-y-2 text-sm text-neutral-200/85 leading-relaxed">
-                      <li>・ヒアリングで“言葉になる前”を拾う</li>
-                      <li>・縦動画の構成とテンポ設計</li>
-                      <li>・導線（来店/問合せ/採用）まで一体で設計</li>
-                    </ul>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <p className="text-[11px] tracking-[0.24em] text-neutral-400">スタンス</p>
-                    <ul className="mt-3 space-y-2 text-sm text-neutral-200/85 leading-relaxed">
-                      <li>・盛らない、でも退屈にしない</li>
-                      <li>・反応が積み上がる“型”に整える</li>
-                      <li>・人柄と関係性を、信頼に変える</li>
-                    </ul>
+              {/* Member 02 */}
+              <div className="relative grid gap-8 lg:grid-cols-[0.55fr_1fr] lg:items-center">
+                <div className="mx-auto w-full max-w-[320px]">
+                  <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-black/25 shadow-[0_30px_90px_rgba(0,0,0,0.55)] group">
+                    <div className="relative w-full" style={{ aspectRatio: "1 / 1" }}>
+                      <img
+                        src="/profile2.jpg"
+                        alt="小濱拓也のプロフィール写真"
+                        className="h-full w-full object-cover grayscale contrast-110 brightness-95 transition duration-500 group-hover:grayscale-0"
+                        loading="lazy"
+                      />
+                      <div className="pointer-events-none absolute inset-0 ring-1 ring-white/10" />
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <PrimaryButton href="#contact" className="px-7">
-                    まず話を聞かせてください
-                  </PrimaryButton>
-                  <GhostButton
-                    href={GORIKI_IG_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-7"
-                  >
-                    制作・日々の記録を見る（Instagram） <span className="text-neutral-500">↗</span>
-                  </GhostButton>
+                <div className="space-y-5">
+                  <div className="space-y-2">
+                    <p className="text-[11px] tracking-[0.24em] text-neutral-400">ビデオグラファー／ドローンパイロット</p>
+                    <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">小濱 拓也</h2>
+                    <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed whitespace-pre-line">
+                      {"テレビ技術プロダクションにてTVカメラマンとして現場経験を積み、\n映像制作会社でディレクターとして企画・演出を担当。\n2024年よりフリーランスとして活動中。\n\n現在は企業VPやリクルート映像を中心に企画から撮影・編集まで一貫した映像制作を行っています。"}
+                    </p>
+                  </div>
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                      <p className="text-[11px] tracking-[0.24em] text-neutral-400">対応領域</p>
+                      <ul className="mt-3 space-y-2 text-sm text-neutral-200/85 leading-relaxed">
+                        <li>・インタビュー撮影</li>
+                        <li>・インサート／情景カット撮影</li>
+                        <li>・縦型映像の画づくり</li>
+                      </ul>
+                    </div>
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                      <p className="text-[11px] tracking-[0.24em] text-neutral-400">得意領域</p>
+                      <ul className="mt-3 space-y-2 text-sm text-neutral-200/85 leading-relaxed">
+                        <li>・現場の臨場感を、シネマの密度に仕立てる</li>
+                        <li>・光と質感にこだわる映像設計</li>
+                        <li>・ストイックに“画”を磨き込む姿勢</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                    {KOHAMA_IG_URL ? (
+                      <GhostButton
+                        href={KOHAMA_IG_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-7"
+                      >
+                        制作・日々の記録を見る（Instagram） <span className="text-neutral-500">↗</span>
+                      </GhostButton>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </div>
