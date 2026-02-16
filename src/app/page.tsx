@@ -16,6 +16,7 @@ const HERO_VIDEO = "/hero/hero.mp4";
 const HERO_POSTER = "/hero/hero.png";
 const PROFILE_IMAGE = "/profile.jpg";
 
+
 // Works assets (place under /public/works/)
 // public/works/alberto-01.mp4 ... alberto-06.mp4
 // public/works/alberto-01.png ... alberto-06.png
@@ -332,7 +333,13 @@ function ConceptStage({
 }) {
   // Helper for highlighting multiple phrases
   const renderHighlighted = (text: string) => {
-    const highlights = ["短い縦型SNS動画", "反応が積み上がっていく"] as const;
+    const highlights = [
+      "短い縦型SNS動画",
+      "反応が積み上がっていく",
+      "想い",
+      "人",
+      "なぜ今",
+    ] as const;
     // Build a single regex that matches any highlight phrase
     const pattern = new RegExp(`(${highlights.map((h) => h.replace(/[.*+?^${}()|[\\]\\]/g, "\\\\$&")).join("|")})`, "g");
     const parts = text.split(pattern);
@@ -489,6 +496,68 @@ function WorkCard({ w }: { w: (typeof works)[number] }) {
         )}
       </div>
     </SoftCard>
+  );
+}
+
+
+function FourStepListCard() {
+  const steps = [
+    { text: "想いに触れる" },
+    { text: "人を知る" },
+    { text: "空気を感じる" },
+    { text: "胸が鳴る" },
+    { text: "そして、動いてしまう。", accent: true },
+  ] as const;
+
+  const dotSize = (i: number) => {
+    // subtle “rising” feel
+    if (i === 0) return "h-2 w-2";
+    if (i === 1) return "h-2.5 w-2.5";
+    if (i === 2) return "h-3 w-3";
+    if (i === 3) return "h-3.5 w-3.5";
+    return "h-4 w-4";
+  };
+
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6">
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-sm sm:text-base font-medium tracking-tight text-neutral-200/90">
+          共感が、うねりに変わるまで
+        </p>
+        <span className="h-px flex-1 bg-gradient-to-r from-white/20 via-white/10 to-transparent" />
+      </div>
+
+      <div className="mt-5 grid gap-3">
+        {steps.map((s, i) => (
+          <div
+            key={i}
+            className={
+              "flex items-center gap-4 rounded-xl border border-white/10 bg-black/20 px-4 py-3 " +
+              (s.accent ? "border-white/15 bg-black/30" : "")
+            }
+          >
+            <span
+              aria-hidden="true"
+              className={
+                "rounded-full shrink-0 " +
+                dotSize(i) +
+                " " +
+                (s.accent ? "bg-[#FFD814]" : "bg-white/25")
+              }
+            />
+
+            <p
+              className={
+                "text-sm sm:text-base font-medium tracking-tight " +
+                (s.accent ? "text-white" : "text-neutral-100/80")
+              }
+            >
+              {s.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -784,37 +853,25 @@ export default function Home() {
               <WorkCard key={i} w={w} />
             ))}
           </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6">
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 space-y-4">
             <p className="text-sm text-neutral-200/90 leading-relaxed">
               それぞれの動画は、役割が違います。
               <span className="text-white"> 信頼</span>・<span className="text-white">関係性</span>・<span className="text-white">空気</span>を、段階的に伝えるための並びです。
             </p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-                <p className="text-[11px] tracking-wide text-neutral-400">#01-02</p>
-                <p className="mt-1 text-sm text-neutral-100/90">人物の信頼を立ち上げる</p>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-                <p className="text-[11px] tracking-wide text-neutral-400">#03-04</p>
-                <p className="mt-1 text-sm text-neutral-100/90">関係性と進捗を可視化する</p>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-                <p className="text-[11px] tracking-wide text-neutral-400">#05-06</p>
-                <p className="mt-1 text-sm text-neutral-100/90">空気で惹きつけて行動へ</p>
-              </div>
-            </div>
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+
+            <FourStepListCard />
+
+            <div className="pt-1 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-start">
               <GhostButton
                 href={ALBERTO_IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5"
               >
-                制作したポーカースペースのアカウントを見る（Instagram） <span className="text-neutral-500">↗</span>
+                <span className="font-medium text-neutral-100/90">共感がうねりになった場所を見る</span>
+                <span className="text-neutral-300/70">（ポーカースペース / Instagram）</span>
+                <span className="text-neutral-500">↗</span>
               </GhostButton>
-              <PrimaryButton href="#contact" className="px-7">
-                相談へ進む
-              </PrimaryButton>
             </div>
           </div>
         </section>
@@ -1085,7 +1142,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-7">
             <p className="text-sm tracking-widest text-neutral-400">料金目安</p>
             <p className="mt-3 text-sm sm:text-base text-neutral-200/90 leading-relaxed">
-              月額 <span className="text-white font-medium">150,000円〜（税別）</span>
+              月額 <span className="text-white font-medium">200,000円〜（税別）</span>
               <span className="text-neutral-400">（週1本程度〜／内容・本数・期間により調整）</span>
             </p>
             <p className="mt-3 text-xs sm:text-sm text-neutral-400 leading-relaxed">
