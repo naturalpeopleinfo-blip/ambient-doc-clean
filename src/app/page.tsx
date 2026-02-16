@@ -501,13 +501,15 @@ function WorkCard({ w }: { w: (typeof works)[number] }) {
 
 
 function FourStepListCard() {
-  const steps = [
+  type StepItem = { text: string; accent?: boolean };
+
+  const steps: StepItem[] = [
     { text: "想いに触れる" },
     { text: "人を知る" },
     { text: "空気を感じる" },
     { text: "胸が鳴る" },
     { text: "そして、動いてしまう。", accent: true },
-  ] as const;
+  ];
 
   const dotSize = (i: number) => {
     // subtle “rising” feel
