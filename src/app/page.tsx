@@ -590,22 +590,6 @@ export default function Home() {
         body {
           overscroll-behavior-x: none;
         }
-        .quote-bar {
-          position: relative;
-        }
-        .quote-bar:before {
-          content: "";
-          position: absolute;
-          left: -12px;
-          top: 2px;
-          bottom: 2px;
-          width: 2px;
-          background: linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.55),
-            rgba(255, 255, 255, 0.08)
-          );
-        }
         @keyframes fadeUp {
           from {
             opacity: 0;
@@ -677,43 +661,61 @@ export default function Home() {
             <div className="relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <div className="relative pl-4">
-                    <span
-                      aria-hidden="true"
-                      className="absolute left-0 top-1 bottom-1 w-[2px] rounded-full bg-gradient-to-b from-white/35 via-white/15 to-transparent"
-                    />
-                    <div className="space-y-3 sm:space-y-4">
-                      {copy.hero.lines.map((line, i) => (
-                        <p
-                          key={i}
-                          className={
-                            "fade-up whitespace-normal tracking-tight " +
-                            (i === 0
-                              ? "text-2xl sm:text-3xl font-semibold text-white relative leading-[1.18]"
-                              : "text-lg sm:text-lg font-medium text-neutral-300/90 leading-[1.65]")
-                          }
-                          style={{ animationDelay: `${40 + i * 100}ms` }}
-                        >
-                          {i === 0 ? (
-                            <span className="relative inline-block">{line}</span>
-                          ) : (
-                            line
-                          )}
+                  <div className="relative">
+                    <div className="space-y-4 sm:space-y-5">
+                      {/* Main declaration */}
+                      <p
+                        className="fade-up whitespace-normal tracking-tight text-3xl sm:text-4xl font-semibold text-white leading-[1.12]"
+                        style={{ animationDelay: "60ms" }}
+                      >
+                        {copy.hero.lines[0]}
+                      </p>
+
+                      {/* Quiet explanation (two lines) */}
+                      <p
+                        className="fade-up whitespace-pre-line tracking-tight text-base sm:text-lg font-medium text-neutral-300/90 leading-[1.85]"
+                        style={{ animationDelay: "160ms" }}
+                      >
+                        {`${copy.hero.lines[1]}\n${copy.hero.lines[2]}`}
+                      </p>
+
+                      {/* Emotional rise */}
+                      <div className="fade-up pt-3 space-y-4" style={{ animationDelay: "260ms" }}>
+                        {/* Make “胸が鳴る。” feel like a small subheading (no yellow text) */}
+                        <div className="space-y-2">
+                          <p className="text-xl sm:text-2xl font-semibold tracking-tight leading-[1.15] text-white">
+                            {copy.hero.lines[3].split("だから")[0].trim()}
+                          </p>
+                        </div>
+
+                        <p className="text-base sm:text-lg font-medium tracking-tight text-neutral-200/90 leading-[1.7]">
+                          {copy.hero.lines[3].includes("だから")
+                            ? (() => {
+                                const parts = copy.hero.lines[3].split("だから");
+                                const after = (parts[1] ?? "").replace(/^[、。\s]+/, "").trim();
+                                return `だから、${after}`;
+                              })()
+                            : copy.hero.lines[3]}
                         </p>
-                      ))}
-                      <div className="fade-up mt-6" style={{ animationDelay: "340ms" }}>
-                        <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs sm:text-sm font-medium tracking-wide text-neutral-200/90">
-                          {copy.hero.tagline}
-                        </span>
                       </div>
                     </div>
                   </div>
 
-                  <h1 className="fade-up mt-6 text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.04]" style={{ animationDelay: "320ms" }}>
+                  <h1
+                    className="fade-up mt-10 sm:mt-12 text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.04]"
+                    style={{ animationDelay: "340ms" }}
+                  >
                     <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
                       {copy.hero.headline}
                     </span>
                   </h1>
+
+                  <p
+                    className="fade-up mt-8 text-sm sm:text-base font-medium tracking-[0.22em] text-neutral-300/80"
+                    style={{ animationDelay: "420ms" }}
+                  >
+                    {copy.hero.tagline}
+                  </p>
                 </div>
               </div>
 
