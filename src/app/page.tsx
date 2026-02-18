@@ -788,7 +788,7 @@ export default function Home() {
             <h2 className="text-xl sm:text-2xl font-semibold tracking-tight">
               事例：湘南のポーカースペース
             </h2>
-            <p className="mt-2 text-sm sm:text-base text-neutral-200/90 leading-relaxed">
+            <p className="mt-2 text-sm sm:text-base text-neutral-200/90 leading-relaxed">　
               湘南のポーカースペース「ALBERTO」の立ち上げを、“ギャンブル”ではなく「コミュニケーションの場」として再定義。
               オーナーの想いとスタッフの関係性、場の温度を縦型ミニドキュメンタリーで可視化し、来店・問い合わせ・採用DMへつながる導線を設計しました。
             </p>
@@ -797,13 +797,28 @@ export default function Home() {
               <p className="mb-5 text-sm tracking-widest text-neutral-400">
                 RESULTS｜共感の先に起きたこと
               </p>
-              <p className="mb-5 text-sm sm:text-base text-neutral-200/90 leading-relaxed whitespace-pre-line">
-                この発信の狙いは、数字そのものではありません。
-                誰が共感し、
-                誰が足を運び、
-                誰が仲間になってくれるのか。
-                その“人の動き”まで設計した結果、下記の変化が生まれました。
-              </p>
+             <p className="mb-5 text-sm sm:text-base text-neutral-200/90 leading-relaxed">
+  大量のフォロワーを集める手法が主流の中で、この発信で得たフォロワーは、約1,000。
+  <br /><br />
+
+  私たちが設計したのは「とにかくたくさん」ではなく、静かに、濃く。
+  「<span className="text-[#FFD814] font-medium">必要な人だけ</span>」が集まる流れでした。
+  <br /><br />
+
+  この発信の狙いは、数字そのものではありません。
+  <br /><br />
+
+  誰が<span className="text-[#FFD814] font-medium">共感</span>し、
+  <br />
+  誰が<span className="text-[#FFD814] font-medium">足</span>を運び、
+  <br />
+  誰が<span className="text-[#FFD814] font-medium">仲間</span>になってくれるのか。
+  <br /><br />
+
+  その“人の動き”まで設計した結果、下記の
+  <span className="text-[#FFD814] font-medium">化学反応</span>
+  が生まれました。
+</p>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 {/* 1st card */}
