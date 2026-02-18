@@ -62,11 +62,12 @@ const works = [
 const copy = {
   hero: {
     lines: [
-      "胸が鳴る。だから、動いてしまう。",
-      "共感で終わらせない。",
-      "行動が生まれる発信へ。",
+      "人で選ばれる店舗を、つくる",
+      "オーナーやスタッフが纏う空気を",
+      "言葉と映像に翻訳する。",
+      "胸が鳴る。だから、足が向く。",
     ],
-    tagline: "縦型SNSドキュメンタリー映像制作",
+    tagline: "縦型SNS × 店舗ドキュメンタリー",
     headline: "Vertical Ambient Documentary",
   },
   proof: {
@@ -83,7 +84,7 @@ concept: {
     "どんな想いで、場をつくっているのか。\n" +
     "どんな人が、そこに立っているのか。\n" +
     "そして、なぜ今、それを伝えるのか。\n\n" +
-    "立ち上げ前という、最も正直で、まだ整いきっていない時間。\n\n" +
+    "変化の途中という、まだ整いきっていない時間。\n\n" +
     "その瞬間を、過剰に飾ることなく、ありのままに残すことで、\n" +
     "共感は静かに広がっていきます。\n\n" +
     "そして、短い縦型SNS動画だからこそ、\n" +
@@ -147,14 +148,12 @@ concept: {
   ],
 },
   cta: {
-    title: "まず、話しましょう。",
+    title: "あなたの“人柄”は、まだ本気を出していない。",
     body:
-      "言葉が整っていなくても構いません。\n" +
-      "むしろ、その前の段階から始めます。\n\n" +
-      "・何を発信すればいいかわからない\n" +
-      "・SNSに違和感がある\n" +
-      "・共感してくれる人だけと、つながりたい\n\n" +
-      "一つでも当てはまれば、話はできます。",
+      "商品より先に、人が好きになる。\n\n" +
+      "誰かの胸が鳴る瞬間は、つくれる。\n\n" +
+      "想いがまだ言葉になっていなくても構いません。\n\n" +
+      "まずは、話しませんか。",
     button: "対話の入口へ",
   },
 } as const;
@@ -683,15 +682,15 @@ export default function Home() {
                       aria-hidden="true"
                       className="absolute left-0 top-1 bottom-1 w-[2px] rounded-full bg-gradient-to-b from-white/35 via-white/15 to-transparent"
                     />
-                    <div className="space-y-1 sm:space-y-2">
+                    <div className="space-y-3 sm:space-y-4">
                       {copy.hero.lines.map((line, i) => (
                         <p
                           key={i}
                           className={
-                            "fade-up whitespace-normal tracking-tight leading-snug " +
+                            "fade-up whitespace-normal tracking-tight " +
                             (i === 0
-                              ? "text-2xl sm:text-3xl font-semibold text-white relative"
-                              : "text-lg sm:text-lg font-medium text-neutral-300/90")
+                              ? "text-2xl sm:text-3xl font-semibold text-white relative leading-[1.18]"
+                              : "text-lg sm:text-lg font-medium text-neutral-300/90 leading-[1.65]")
                           }
                           style={{ animationDelay: `${40 + i * 100}ms` }}
                         >
@@ -702,17 +701,15 @@ export default function Home() {
                           )}
                         </p>
                       ))}
-
-                      <p
-                        className="fade-up mt-3 text-sm sm:text-base font-medium tracking-tight text-neutral-200/85"
-                        style={{ animationDelay: "340ms" }}
-                      >
-                        {copy.hero.tagline}
-                      </p>
+                      <div className="fade-up mt-6" style={{ animationDelay: "340ms" }}>
+                        <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs sm:text-sm font-medium tracking-wide text-neutral-200/90">
+                          {copy.hero.tagline}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
-                  <h1 className="fade-up text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.04]" style={{ animationDelay: "320ms" }}>
+                  <h1 className="fade-up mt-6 text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.04]" style={{ animationDelay: "320ms" }}>
                     <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
                       {copy.hero.headline}
                     </span>
@@ -803,7 +800,7 @@ export default function Home() {
                 誰が共感し、
                 誰が足を運び、
                 誰が仲間になってくれるのか。
-                その“人の動き”まで含めて設計した結果、下記の動きが生まれました。
+                その“人の動き”まで設計した結果、下記の変化が生まれました。
               </p>
 
               <div className="grid gap-4 sm:grid-cols-2">
@@ -1123,14 +1120,35 @@ export default function Home() {
         {/* INDUSTRY NOTE */}
         <section className="space-y-4 pt-6">
           <div className="mx-auto max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 text-center">
-            <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed whitespace-pre-line">
-              この取り組みは、業種を問いません。
+            <div className="space-y-6 text-center">
+              <p className="text-sm sm:text-base text-neutral-200/90 leading-relaxed">
+                このプロジェクトは、業種を問いません。
+              </p>
 
-              店舗でも、サービスでも、ものづくりでも。
+              <ul className="mx-auto grid max-w-xl gap-2 sm:gap-2.5 text-left">
+                <li className="flex items-center justify-start gap-3 text-sm sm:text-base text-neutral-200/90 leading-relaxed">
+                  <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full border border-[#FFD814]/35 bg-[#FFD814]/10" />
+                  <span>上質なレストランやバー</span>
+                </li>
+                <li className="flex items-center justify-start gap-3 text-sm sm:text-base text-neutral-200/90 leading-relaxed">
+                  <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full border border-[#FFD814]/35 bg-[#FFD814]/10" />
+                  <span>感度の高いヘアサロンやエステ</span>
+                </li>
+                <li className="flex items-center justify-start gap-3 text-sm sm:text-base text-neutral-200/90 leading-relaxed">
+                  <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full border border-[#FFD814]/35 bg-[#FFD814]/10" />
+                  <span>コミュニケーションを大切にするパーソナルジム</span>
+                </li>
+                <li className="flex items-center justify-start gap-3 text-sm sm:text-base text-neutral-200/90 leading-relaxed">
+                  <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full border border-[#FFD814]/35 bg-[#FFD814]/10" />
+                  <span>アミューズメント空間やコミュニティスペース</span>
+                </li>
+              </ul>
 
-              「人が立っている事業」であれば、
-              必ず機能します。
-            </p>
+              <p className="mt-6 text-base sm:text-lg font-medium text-white leading-relaxed text-center">
+                <span className="font-semibold">“人と空気”</span>
+                が価値になる空間で、真価を発揮します。
+              </p>
+            </div>
           </div>
         </section>
 
